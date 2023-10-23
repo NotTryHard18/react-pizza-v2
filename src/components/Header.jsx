@@ -4,10 +4,10 @@ function Header () {
     <div className="header">
         <div className="container">
         <div className="header__logo">
-            <img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
+            <img width="38" src="../img/pizza-logo.svg" alt="Pizza logo" />
             <div>
-            <h1>React Pizza</h1>
-            <p>самая вкусная пицца во вселенной</p>
+            <h1>React Pizza-v2</h1>
+            <p>Сама смачна піцца в світі</p>
             </div>
         </div>
         <div className="header__cart">
