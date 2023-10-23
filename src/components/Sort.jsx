@@ -9,6 +9,7 @@ function Sort() {
     setSelected(i);
     setOpen(false);
   };
+  const sortName = list[selected];
   
     return (
         <div className="sort">
@@ -28,7 +29,7 @@ function Sort() {
               />
             </svg>
             <b>Сортировка за:</b>
-            <span onClick={()=> setOpen(!open)}>{list[selected]}</span>
+            <span onClick={()=> setOpen(!open)}>{sortName}</span>
           </div>
           {open && (
           <div className="sort__popup">
