@@ -15,7 +15,7 @@ function App() {
       <div className="content">
         <div className="container">
           <Home />
-          <NotFound />
+          {/* <NotFound /> */}
           
         </div>
       </div>
