@@ -1,15 +1,19 @@
+import { Link } from "react-router-dom";
+
 function Header () {
 
     return (
     <div className="header">
         <div className="container">
+        <Link to="/">
         <div className="header__logo">
-            <img width="38" src="./pizza-logo.svg" alt="Pizza logo" />
+            {/* <img width="38" src="./pizza-logo.svg" alt="Pizza logo" /> */}
             <div>
             <h1>React Pizza-v2</h1>
             <p>Сама смачна піцца в світі</p>
             </div>
         </div>
+        </Link>
         <div className="header__cart">
             <a href="/cart.html" className="button button--cart">
             <span>520 ₴</span>
