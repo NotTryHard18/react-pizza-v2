@@ -6,6 +6,7 @@ function Categories(){
 
     const [activeIndex, setActiveIndexTo] = React.useState(0);
 
+    
     const onClickCategory = (index) =>{
         setActiveIndexTo(index);
     }
