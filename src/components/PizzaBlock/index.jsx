@@ -6,7 +6,7 @@ function PizzaBlock({name, price, image, size, types}) {
         const onClickAddPizzaCount = () =>{
             setPizzaCount(pizzaCount + 1);
         }
-
+//?sdfjsdfkjhkjsbhfjsfbsjdfbsvjbsdjdhfbsdjhvcbhfbsdjhfbsdjhfbsdjhss
 //!----------------------------------------------------------------
     const [activeType, setActiveType] = React.useState(0)
     const [activeSize, setActiveSize] = React.useState(0)
