@@ -14,8 +14,9 @@ function Header () {
             </div>
         </div>
         </Link>
+        <Link to="&">
         <div className="header__cart">
-            <a href="/cart.html" className="button button--cart">
+            <a Link to ="/cart.html" className="button button--cart">
             <span>520 ₴</span>
             <div className="button__delimiter"></div>
             <svg
@@ -50,6 +51,7 @@ function Header () {
             <span>3</span>
             </a>
         </div>
+        </Link>
         </div>
   </div>
   )

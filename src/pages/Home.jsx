@@ -6,28 +6,44 @@ import Skeleton from '../components/PizzaBlock/Skeleton';
 
 const Home = () => {
     const [items, setItems] = React.useState([]);
-  const [isLoading, setLoading] = React.useState(true)  
+    const [isLoading, setLoading] = React.useState(true);
+    const [categoryId, setCategoryId] = React.useState(0);
+    const [sortType, setSortType] = React.useState({
+      name: 'популярність',
+      sortProperty: 'rating',
+    });
     React.useEffect(() =>{
-      fetch('https://65368887bb226bb85dd248ce.mockapi.io/items')
+      setLoading(true);
+
+      const sortBy = sortType.sortProperty.replace('-','');
+      const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
+      const category = categoryId > 0 ? `category=${categoryId}`: '';
+
+      fetch(`https://65368887bb226bb85dd248ce.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order} `)
       .then((responce) => {return responce.json();})
       .then((array) => {setItems(array);
-       setLoading(false);})
-    }, []);
+       setLoading(false);
+      });
+      window.scrollTo(0, 0);
+    }, [categoryId, sortType]);
+
+    console.log('isLoading', isLoading)
   return (
-    <>
+    <div className="container"> 
     <div className="content__top">
-            <Categories />
-            <Sort />
+            <Categories value = {categoryId} onClickCategory={(i) => setCategoryId(i)} />
+            <Sort value = {sortType} onChangeSort={(i) => setSortType(i)}/>
           </div>
           <h2 className="content__title">Всі піци</h2>
           <div className="content__items">
             {isLoading 
-            ? [...new Array(6).map((_, index) => <Skeleton key = {index}/>)]
-            : items.map((obj) => <PizzaBlock name={obj.title} price={obj.price} image={obj.imageUrl} size={obj.sizes} types = {obj.types}/>)
+            ? [ ...new Array(6).map((_, index) => <Skeleton key = {index}/>)]
+            : items.map((obj) => <PizzaBlock key={obj.id} name={obj.title} price={obj.price} image={obj.imageUrl} size={obj.sizes} types = {obj.types}/>)
             }
           </div>
-    </>
+    </div>
   )
 }
 
 export default Home
+// name={obj.title} price={obj.price} image={obj.imageUrl} size={obj.sizes} types = {obj.types}
